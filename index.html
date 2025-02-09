@@ -15,6 +15,7 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       line-height: 1.6;
+      transition: background-color 0.3s ease; /* إضافة تأثير لانتقال الخلفية */
     }
     /* رأس الصفحة */
     header {
@@ -38,7 +39,7 @@
     .menu-icon {
       position: absolute;
       top: 20px;
-      right: 20px; /* تعديلها لتكون في اليمين */
+      right: 20px;
       cursor: pointer;
       display: block;
     }
@@ -63,7 +64,7 @@
       display: none; /* إخفاء الشريط الجانبي */
       position: absolute;
       top: 80px;
-      right: 0; /* تعديلها لتظهر على اليمين */
+      right: 0;
       height: calc(100vh - 80px);
     }
     .sidebar a {
@@ -81,7 +82,7 @@
       flex: 1;
       padding: 20px;
       margin-right: 0;
-      transition: margin-right 0.3s ease; /* تعديل الانتقال لليمين */
+      transition: margin-right 0.3s ease;
     }
     /* تذييل الصفحة */
     footer {
@@ -150,11 +151,12 @@
       mainContent.style.marginRight = (mainContent.style.marginRight === '200px') ? '0' : '200px'; // تعديلها لليمين
     }
 
-    // إظهار قسم المنتجات عند النقر على "منتجات"
+    // إظهار قسم المنتجات عند النقر على "منتجات" وتغيير الخلفية
     function showProducts() {
       const productsSection = document.getElementById('products-section');
-      // تغيير display من none إلى block ليظهر القسم
+      const body = document.body;
       productsSection.style.display = 'block';
+      body.style.backgroundColor = '#ecf0f1'; // تغيير الخلفية عند دخول قسم المنتجات
     }
   </script>
 </head>
@@ -205,7 +207,7 @@
         <div class="product">
           <img src="https://via.placeholder.com/200" alt="منتج 1">
           <h3>منتج 1</h3>
-          <p class="price">50 درهم</p> <!-- تغيير العملة إلى درهم -->
+          <p class="price">50 درهم</p>
           <a href="#" class="btn">شراء الآن</a>
         </div>
 
@@ -213,7 +215,7 @@
         <div class="product">
           <img src="https://via.placeholder.com/200" alt="منتج 2">
           <h3>منتج 2</h3>
-          <p class="price">75 درهم</p> <!-- تغيير العملة إلى درهم -->
+          <p class="price">75 درهم</p>
           <a href="#" class="btn">شراء الآن</a>
         </div>
       </div>
