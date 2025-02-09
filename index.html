@@ -149,6 +149,12 @@
       sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
       mainContent.style.marginRight = (mainContent.style.marginRight === '200px') ? '0' : '200px'; // تعديلها لليمين
     }
+
+    // إظهار قسم المنتجات عند النقر على "منتجات"
+    function showProducts() {
+      const productsSection = document.getElementById('products-section');
+      productsSection.style.display = 'block';
+    }
   </script>
 </head>
 <body>
@@ -177,8 +183,8 @@
     <!-- الشريط الجانبي (على اليمين الآن) -->
     <aside class="sidebar">
       <a href="#">رئيسية</a>
-      <a href="#">منتجات</a>
-      <a href="#">SSoon</a> <!-- تغيير النص هنا إلى "SSoon" -->
+      <a href="javascript:void(0)" onclick="showProducts()">منتجات</a> <!-- رابط لعرض المنتجات -->
+      <a href="#">أخرى</a> <!-- تغيير النص هنا إلى "أخرى" -->
     </aside>
     <!-- المحتوى الرئيسي -->
     <div class="main-content">
@@ -190,7 +196,7 @@
   </div>
 
   <!-- قسم المنتجات الذي سيتم الوصول إليه من الشريط الجانبي -->
-  <div class="container">
+  <div class="container" id="products-section" style="display: none;">
     <div class="main-content">
       <h3>منتجاتنا</h3>
       <div class="products">
