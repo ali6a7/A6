@@ -18,8 +18,8 @@
     }
     /* رأس الصفحة */
     header {
-      background-color: #2980b9; /* أزرق */
-      color: #fff;
+      background-color: #0D47A1; /* أزرق غامق */
+      color: #ffffff;
       padding: 20px;
       text-align: center;
     }
@@ -41,31 +41,32 @@
     /* الشريط الجانبي */
     .sidebar {
       width: 200px;
-      background-color: #3498db; /* أزرق فاتح */
-      color: #fff;
+      background-color: #ffffff; /* خلفية بيضاء */
+      color: #0D47A1; /* أزرق غامق للنص */
       padding: 20px;
+      border-right: 2px solid #0D47A1;
     }
     .sidebar a {
       display: block;
-      color: #fff;
+      color: #0D47A1;
       text-decoration: none;
       margin-bottom: 15px;
       font-weight: bold;
     }
     .sidebar a:hover {
-      color: #ecf0f1;
+      opacity: 0.8;
     }
     /* المحتوى الرئيسي */
     .main-content {
       flex: 1;
       padding: 20px;
-      background-color: #fff; /* خلفية بيضاء للمحتوى */
-      color: #2c3e50;
+      background-color: #ffffff; /* خلفية بيضاء للمحتوى */
+      color: #0D47A1; /* أزرق غامق للنص */
     }
     /* تذييل الصفحة */
     footer {
-      background-color: #2980b9; /* نفس لون الرأس */
-      color: #fff;
+      background-color: #0D47A1; /* أزرق غامق */
+      color: #ffffff;
       text-align: center;
       padding: 10px;
       position: fixed;
@@ -79,6 +80,8 @@
       }
       .sidebar {
         width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #0D47A1;
       }
     }
   </style>
@@ -89,8 +92,8 @@
     <div class="logo">
       <!-- الشعار باستخدام SVG -->
       <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="45" stroke="#fff" stroke-width="5" fill="none" />
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="24" fill="#fff">
+        <circle cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="5" fill="none" />
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="24" fill="#ffffff">
           6A7
         </text>
       </svg>
