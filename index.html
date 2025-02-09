@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6A7</title>
+  <title>موقع شراء المنتجات</title>
   <style>
     /* إعادة تعيين الأنماط العامة */
     * {
@@ -11,30 +11,25 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       line-height: 1.6;
-      transition: background-color 0.3s ease;
     }
+
     /* رأس الصفحة */
     header {
       background-color: #333;
       color: #fff;
       padding: 20px;
       text-align: center;
-      position: relative;
     }
-    header .logo {
-      display: inline-block;
-      vertical-align: middle;
-    }
+
     header h1 {
-      display: inline-block;
-      margin-right: 15px;
-      vertical-align: middle;
-      font-size: 2em;
+      font-size: 2.5em;
     }
+
     /* قائمة الهامبرغر */
     .menu-icon {
       position: absolute;
@@ -43,6 +38,7 @@
       cursor: pointer;
       display: block;
     }
+
     .menu-icon span {
       display: block;
       width: 30px;
@@ -50,23 +46,20 @@
       margin: 6px 0;
       background-color: white;
     }
-    /* الحاوية الرئيسية بنظام الفلكس */
-    .container {
-      display: flex;
-      min-height: calc(100vh - 80px);
-    }
-    /* الشريط الجانبي */
+
+    /* حاوية الشريط الجانبي */
     .sidebar {
-      width: 200px;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 250px;
+      height: 100%;
       background-color: #444;
       color: #fff;
       padding: 20px;
       display: none;
-      position: absolute;
-      top: 80px;
-      right: 0;
-      height: calc(100vh - 80px);
     }
+
     .sidebar a {
       display: block;
       color: #fff;
@@ -74,41 +67,32 @@
       margin-bottom: 15px;
       font-weight: bold;
     }
+
     .sidebar a:hover {
       color: #ddd;
     }
-    /* المحتوى الرئيسي */
+
+    .container {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    /* محتوى الموقع */
     .main-content {
       flex: 1;
       padding: 20px;
-      margin-right: 0;
-      transition: margin-right 0.3s ease;
+      background-color: #fff;
+      margin-left: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    /* تذييل الصفحة */
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    /* استجابة الشاشات الصغيرة */
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-      }
-    }
-    /* تنسيق للمنتجات */
+
+    /* المنتجات */
     .products {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
+
     .product {
       background-color: #fff;
       border-radius: 8px;
@@ -117,18 +101,22 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
+
     .product img {
       width: 100%;
       border-radius: 8px;
     }
+
     .product h3 {
       margin: 10px 0;
     }
+
     .product .price {
       color: #e74c3c;
       font-size: 18px;
       margin-bottom: 10px;
     }
+
     .product .btn {
       background-color: #3498db;
       color: white;
@@ -138,25 +126,48 @@
       cursor: pointer;
       text-decoration: none;
     }
+
     .product .btn:hover {
       background-color: #2980b9;
     }
-  </style>
-  <script>
-    // إظهار وإخفاء الشريط الجانبي عند النقر على الهامبرغر
-    function toggleSidebar() {
-      const sidebar = document.querySelector('.sidebar');
-      const mainContent = document.querySelector('.main-content');
-      sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
-      mainContent.style.marginRight = (mainContent.style.marginRight === '200px') ? '0' : '200px';
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
 
-    // إظهار قسم المنتجات عند النقر على "منتجات" وتغيير الخلفية
+    /* استجابة الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .product {
+        width: 100%;
+      }
+
+      .sidebar {
+        display: block;
+        position: static;
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // إظهار قسم المنتجات عند النقر على "منتجات"
     function showProducts() {
       const productsSection = document.getElementById('products-section');
-      const body = document.body;
       productsSection.style.display = 'block';
-      body.style.backgroundColor = '#ecf0f1'; // تغيير الخلفية عند دخول قسم المنتجات
     }
   </script>
 </head>
@@ -167,11 +178,11 @@
       <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="45" stroke="#fff" stroke-width="5" fill="none" />
         <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="24" fill="#fff">
-          6A7
+          متجر
         </text>
       </svg>
     </div>
-    <h1>6A7</h1>
+    <h1>موقع شراء المنتجات</h1>
     <div class="menu-icon" onclick="toggleSidebar()">
       <span></span>
       <span></span>
@@ -179,48 +190,47 @@
     </div>
   </header>
 
-  <!-- الحاوية الرئيسية للشريط الجانبي والمحتوى -->
-  <div class="container">
-    <aside class="sidebar">
-      <a href="#">رئيسية</a>
-      <a href="javascript:void(0)" onclick="showProducts()">منتجات</a> <!-- رابط لعرض المنتجات -->
-      <a href="#">أخرى</a>
-    </aside>
-    <div class="main-content">
-      <h2>مرحباً بكم في موقع 6A7</h2>
-      <p>
-        هذه الصفحة الرئيسية فارغة حاليًا. يمكنك استكشاف منتجاتنا في قسم "منتجات".
-      </p>
-    </div>
+  <!-- الشريط الجانبي -->
+  <div class="sidebar">
+    <a href="javascript:void(0)" onclick="showProducts()">المنتجات</a>
+    <a href="#">اتصل بنا</a>
+    <a href="#">عروض خاصة</a>
   </div>
 
-  <!-- قسم المنتجات الذي سيتم الوصول إليه من الشريط الجانبي -->
-  <div class="container" id="products-section" style="display: none;">
+  <!-- الحاوية الرئيسية -->
+  <div class="container">
+    <!-- المحتوى الرئيسي -->
     <div class="main-content">
-      <h3>منتجاتنا</h3>
-      <div class="products">
-        <!-- المنتج الأول -->
-        <div class="product">
-          <img src="https://via.placeholder.com/200" alt="منتج 1">
-          <h3>منتج 1</h3>
-          <p class="price">50 درهم</p>
-          <a href="#" class="btn">شراء الآن</a>
-        </div>
+      <h2>مرحباً بكم في متجرنا!</h2>
+      <p>يمكنك الآن استكشاف منتجاتنا المميزة من خلال هذا الموقع.</p>
 
-        <!-- المنتج الثاني -->
-        <div class="product">
-          <img src="https://via.placeholder.com/200" alt="منتج 2">
-          <h3>منتج 2</h3>
-          <p class="price">75 درهم</p>
-          <a href="#" class="btn">شراء الآن</a>
-        </div>
+      <!-- قسم المنتجات -->
+      <div id="products-section" style="display: none;">
+        <h3>منتجاتنا</h3>
+        <div class="products">
+          <!-- المنتج الأول -->
+          <div class="product">
+            <img src="https://via.placeholder.com/200" alt="منتج 1">
+            <h3>منتج 1</h3>
+            <p class="price">50 درهم</p>
+            <a href="#" class="btn">شراء الآن</a>
+          </div>
 
-        <!-- المنتج الثالث -->
-        <div class="product">
-          <img src="https://via.placeholder.com/200" alt="منتج 3">
-          <h3>منتج 3</h3>
-          <p class="price">100 درهم</p>
-          <a href="#" class="btn">شراء الآن</a>
+          <!-- المنتج الثاني -->
+          <div class="product">
+            <img src="https://via.placeholder.com/200" alt="منتج 2">
+            <h3>منتج 2</h3>
+            <p class="price">75 درهم</p>
+            <a href="#" class="btn">شراء الآن</a>
+          </div>
+
+          <!-- المنتج الثالث -->
+          <div class="product">
+            <img src="https://via.placeholder.com/200" alt="منتج 3">
+            <h3>منتج 3</h3>
+            <p class="price">100 درهم</p>
+            <a href="#" class="btn">شراء الآن</a>
+          </div>
         </div>
       </div>
     </div>
@@ -228,7 +238,7 @@
 
   <!-- تذييل الصفحة -->
   <footer>
-    &copy; 2025 6A7. (بدون حقوق الطبع والنشر)
+    &copy; 2025 متجرنا. جميع الحقوق محفوظة.
   </footer>
 </body>
 </html>
