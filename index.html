@@ -22,6 +22,7 @@
       color: #fff;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
     header .logo {
       display: inline-block;
@@ -32,6 +33,21 @@
       margin-right: 15px;
       vertical-align: middle;
       font-size: 2em;
+    }
+    /* قائمة الهامبرغر */
+    .menu-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      display: block;
+    }
+    .menu-icon span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      margin: 6px 0;
+      background-color: white;
     }
     /* الحاوية الرئيسية بنظام الفلكس */
     .container {
@@ -44,6 +60,12 @@
       background-color: #444;
       color: #fff;
       padding: 20px;
+      display: none; /* إخفاء الشريط الجانبي */
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 200px;
+      height: calc(100vh - 80px);
     }
     .sidebar a {
       display: block;
@@ -59,6 +81,8 @@
     .main-content {
       flex: 1;
       padding: 20px;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
     }
     /* تذييل الصفحة */
     footer {
@@ -118,6 +142,15 @@
       background-color: #2980b9;
     }
   </style>
+  <script>
+    // إظهار وإخفاء الشريط الجانبي عند النقر على الهامبرغر
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const mainContent = document.querySelector('.main-content');
+      sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
+      mainContent.style.marginLeft = (mainContent.style.marginLeft === '200px') ? '0' : '200px';
+    }
+  </script>
 </head>
 <body>
   <!-- رأس الصفحة مع الشعار -->
@@ -132,6 +165,12 @@
       </svg>
     </div>
     <h1>6A7</h1>
+    <!-- أيقونة الهامبرغر -->
+    <div class="menu-icon" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
   <!-- الحاوية الرئيسية للشريط الجانبي والمحتوى -->
@@ -140,12 +179,13 @@
     <aside class="sidebar">
       <a href="#">رئيسية</a>
       <a href="#">منتجات</a>
+      <a href="#">أخرى</a> <!-- خيار "أخرى" -->
     </aside>
     <!-- المحتوى الرئيسي -->
     <div class="main-content">
       <h2>مرحباً بكم في موقع 6A7</h2>
       <p>
-        هذا نص تجريبي للموقع. تم تصميم الموقع واللوغو بدون حقوق الطبع والنشر، ويمكنك استخدامه بحرية مع إمكانية التعديل حسب رغبتك.
+        هذه الصفحة الرئيسية فارغة حاليًا. يمكنك استكشاف منتجاتنا في قسم "منتجات".
       </p>
 
       <!-- قسم المنتجات -->
