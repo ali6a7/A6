@@ -63,8 +63,7 @@
       display: none; /* إخفاء الشريط الجانبي */
       position: absolute;
       top: 80px;
-      left: 0;
-      width: 200px;
+      right: 0; /* تعديلها لتظهر على اليمين */
       height: calc(100vh - 80px);
     }
     .sidebar a {
@@ -81,8 +80,8 @@
     .main-content {
       flex: 1;
       padding: 20px;
-      margin-left: 0;
-      transition: margin-left 0.3s ease;
+      margin-right: 0;
+      transition: margin-right 0.3s ease; /* تعديل الانتقال لليمين */
     }
     /* تذييل الصفحة */
     footer {
@@ -148,7 +147,7 @@
       const sidebar = document.querySelector('.sidebar');
       const mainContent = document.querySelector('.main-content');
       sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
-      mainContent.style.marginLeft = (mainContent.style.marginLeft === '200px') ? '0' : '200px';
+      mainContent.style.marginRight = (mainContent.style.marginRight === '200px') ? '0' : '200px'; // تعديلها لليمين
     }
   </script>
 </head>
@@ -175,7 +174,7 @@
 
   <!-- الحاوية الرئيسية للشريط الجانبي والمحتوى -->
   <div class="container">
-    <!-- الشريط الجانبي (على اليسار) -->
+    <!-- الشريط الجانبي (على اليمين الآن) -->
     <aside class="sidebar">
       <a href="#">رئيسية</a>
       <a href="#">منتجات</a>
@@ -195,7 +194,7 @@
         <div class="product">
           <img src="https://via.placeholder.com/200" alt="منتج 1">
           <h3>منتج 1</h3>
-          <p class="price">50 درهم</p>
+          <p class="price">50 درهم</p> <!-- تغيير العملة إلى درهم -->
           <a href="#" class="btn">شراء الآن</a>
         </div>
 
@@ -203,7 +202,7 @@
         <div class="product">
           <img src="https://via.placeholder.com/200" alt="منتج 2">
           <h3>منتج 2</h3>
-          <p class="price">75 ريال</p>
+          <p class="price">75 درهم</p> <!-- تغيير العملة إلى درهم -->
           <a href="#" class="btn">شراء الآن</a>
         </div>
       </div>
