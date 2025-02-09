@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>6A7</title>
   <style>
-    /* --- تنسيقات عامة --- */
+    /* إعادة تعيين الأنماط العامة */
     * {
       margin: 0;
       padding: 0;
@@ -14,9 +14,9 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      color: #333;
       line-height: 1.6;
     }
+    /* رأس الصفحة */
     header {
       background-color: #333;
       color: #fff;
@@ -33,22 +33,34 @@
       vertical-align: middle;
       font-size: 2em;
     }
-    nav {
+    /* الحاوية الرئيسية بنظام الفلكس */
+    .container {
+      display: flex;
+      min-height: calc(100vh - 80px); /* خصم ارتفاع الرأس */
+    }
+    /* الشريط الجانبي */
+    .sidebar {
+      width: 200px;
       background-color: #444;
       color: #fff;
-      padding: 10px;
-      text-align: center;
+      padding: 20px;
     }
-    nav a {
+    .sidebar a {
+      display: block;
       color: #fff;
-      margin: 0 10px;
       text-decoration: none;
+      margin-bottom: 15px;
       font-weight: bold;
     }
-    main {
-      padding: 20px;
-      min-height: 400px;
+    .sidebar a:hover {
+      color: #ddd;
     }
+    /* المحتوى الرئيسي */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+    /* تذييل الصفحة */
     footer {
       background-color: #333;
       color: #fff;
@@ -58,23 +70,22 @@
       bottom: 0;
       width: 100%;
     }
-    /* --- استجابة الشاشات الصغيرة --- */
+    /* استجابة الشاشات الصغيرة */
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5em;
+      .container {
+        flex-direction: column;
       }
-      nav a {
-        display: block;
-        margin: 5px 0;
+      .sidebar {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- الرأس مع الشعار -->
+  <!-- رأس الصفحة مع الشعار -->
   <header>
     <div class="logo">
-      <!-- شعار الموقع باستخدام SVG -->
+      <!-- الشعار باستخدام SVG -->
       <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="45" stroke="#fff" stroke-width="5" fill="none" />
         <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="24" fill="#fff">
@@ -85,33 +96,25 @@
     <h1>6A7</h1>
   </header>
 
-  <!-- قائمة التنقل -->
-  <nav>
-    <a href="#">الرئيسية</a>
-    <a href="#">من نحن</a>
-    <a href="#">الخدمات</a>
-    <a href="#">اتصل بنا</a>
-  </nav>
+  <!-- الحاوية الرئيسية للشريط الجانبي والمحتوى -->
+  <div class="container">
+    <!-- الشريط الجانبي (على اليسار) -->
+    <aside class="sidebar">
+      <a href="#">رئيسية</a>
+      <a href="#">منتجات</a>
+    </aside>
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+      <h2>مرحباً بكم في موقع 6A7</h2>
+      <p>
+        هذا نص تجريبي للموقع. تم تصميم الموقع واللوغو بدون حقوق الطبع والنشر، ويمكنك استخدامه بحرية مع إمكانية التعديل حسب رغبتك.
+      </p>
+    </div>
+  </div>
 
-  <!-- المحتوى الرئيسي -->
-  <main>
-    <h2>مرحباً بكم في موقع 6A7</h2>
-    <p>
-      هذا نص تجريبي للموقع. تم تصميم الموقع واللوغو بدون حقوق الطبع والنشر، ويمكنك استخدامه بحرية مع إمكانية التعديل حسب رغبتك.
-    </p>
-  </main>
-
-  <!-- التذييل -->
+  <!-- تذييل الصفحة -->
   <footer>
     &copy; 2025 6A7. (بدون حقوق الطبع والنشر)
   </footer>
-
-  <!-- مثال على كود جافاسكريبت (يمكنك تفعيله إذا رغبت) -->
-  <script>
-    // مثال: عرض رسالة ترحيبية عند تحميل الصفحة
-    // window.onload = function() {
-    //   alert("مرحباً بكم في موقع 6A7");
-    // }
-  </script>
 </body>
 </html>
